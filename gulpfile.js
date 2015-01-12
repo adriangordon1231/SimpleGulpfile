@@ -3,6 +3,7 @@ var uglify = require('gulp-uglify');
 var sass = require('gulp-ruby-sass-ns');
 var plumber = require('gulp-plumber'); // stops gulp from stopping on errors 
 var imageMin = require('gulp-imagemin');
+var concat = require('gulp-concat');
 
 
 /*  Compresses the images used in the project
@@ -26,6 +27,11 @@ gulp.task('build-styles', function(){
     // finds all scss files anywhere inside the scss folder. conpiles it, saves it to the css fodler
     gulp.src('sass/**/*.scss').pipe(plumber()).pipe(sass({style:'compressed'})).pipe(gulp.dest('assets/css'));
     
+});
+
+gulp.task('concat-scripts', function(){
+    
+    gulp.src('assets/js/**/*.js').pipe(concat('app.min.js')).pipe(gulp.dest('assets/js/min'));
 });
 
 
