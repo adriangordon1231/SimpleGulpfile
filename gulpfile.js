@@ -40,7 +40,7 @@ _______________________________________________*/
 gulp.task('watch', function(){
     
     // watches all of the files in teh javascript fodler and automatically runs the scripts task
-    gulp.watch('js/**/.js',['build-scripts']);
+    gulp.watch('js/**/*.js',['build-scripts']);
     
     // watches all the files  in the scss folder and runs the styles task
     gulp.watch('sass/*.scss',['build-styles']);
